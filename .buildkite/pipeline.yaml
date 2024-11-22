@@ -2,6 +2,7 @@ steps:
   - label: "go test"
     command: |
       go install github.com/mcncl/testris/cmd/testris@latest
+      go clean -cache -testcache
       TEST_PATTERN=$(testris -index=$$BUILDKITE_PARALLEL_JOB -total=$$BUILDKITE_PARALLEL_JOB_COUNT)
-      go test ./... -run $$TEST_PATTERN
+      go test ./... -run $$TEST_PATTERN -v
     parallelism: 2
