@@ -20,7 +20,7 @@ testris -index=0 -total=2 -dir=./
 steps:
   - label: "go test"
     command: |
-      TEST_PATTERN=$(testris -index=$((BUILDKITE_PARALLEL_JOB-1)) -total=$BUILDKITE_PARALLEL_JOB_COUNT)
+      TEST_PATTERN=$(testris -index=$$BUILDKITE_PARALLEL_JOB -total=$$BUILDKITE_PARALLEL_JOB_COUNT)
       go test ./... -run "$TEST_PATTERN"
     parallelism: 2
 ```
