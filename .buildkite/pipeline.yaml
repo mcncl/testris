@@ -3,5 +3,5 @@ steps:
     command: |
       go install github.com/mcncl/testris/cmd/testris@latest
       TEST_PATTERN=$(testris -index=$((BUILDKITE_PARALLEL_JOB-1)) -total=$BUILDKITE_PARALLEL_JOB_COUNT)
-      go test ./... -run "$TEST_PATTERN"
+      go test ./... -run $$TEST_PATTERN
     parallelism: 2
