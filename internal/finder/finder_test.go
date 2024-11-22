@@ -21,11 +21,11 @@ func TestFindTests(t *testing.T) {
 
 	for path, content := range testFiles {
 		fullPath := filepath.Join(tmpDir, path)
-		err := os.MkdirAll(filepath.Dir(fullPath), 0755)
+		err := os.MkdirAll(filepath.Dir(fullPath), 0o755)
 		if err != nil {
 			t.Fatal(err)
 		}
-		err = os.WriteFile(fullPath, []byte(content), 0644)
+		err = os.WriteFile(fullPath, []byte(content), 0o644)
 		if err != nil {
 			t.Fatal(err)
 		}

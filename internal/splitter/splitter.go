@@ -30,4 +30,3 @@ func GenerateTestPattern(tests []finder.TestInfo, index, total int) string {
 
 	return "^(" + strings.Join(patterns, "|") + ")$"
 }
-
